@@ -1,0 +1,1 @@
+# seibert-stiftung-scripts
