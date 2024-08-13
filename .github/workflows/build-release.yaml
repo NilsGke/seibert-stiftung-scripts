@@ -24,7 +24,7 @@ jobs:
 
       - name: write version to dist script
         id: writeVersion
-        run: bun run scripts/writeVersionToDist.ts
+        run: bun run scripts/writeVersionToDist.ts --version "${{ steps.versioning.outputs.tag }}"
 
       - name: Create Release
         uses: ncipollo/release-action@v1
