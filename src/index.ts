@@ -5,8 +5,8 @@
 // @author       NilsGke
 // @match        *://*/*
 // @grant        none
-// @downloadURL  https://gist.github.com/NilsGke/60c82ac3926d0799576ea781a0324d2a/raw
-// @updateURL    https://gist.github.com/NilsGke/60c82ac3926d0799576ea781a0324d2a/raw
+// @downloadURL  https://github.com/NilsGke/seibert-stiftung-scripts/releases/latest/download/index.js
+// @updateURL    https://github.com/NilsGke/seibert-stiftung-scripts/releases/latest/download/index.js
 // @version      {{version}}
 // ==/UserScript==
 
