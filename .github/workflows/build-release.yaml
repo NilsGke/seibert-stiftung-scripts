@@ -22,6 +22,8 @@ jobs:
         id: versioning
         uses: Soumeh/Auto-Versioning@main
 
+      - run: "mkdir dist/versioned"
+
       - name: write version to dist script
         id: writeVersion
         run: bun run scripts/writeVersionToDist.ts --version "${{ steps.versioning.outputs.tag }}"
@@ -30,7 +32,7 @@ jobs:
         uses: ncipollo/release-action@v1
 
         with:
-          name: ${{ github.event.head_commit.message }}
+          name: ${{ steps.versioning.outputs.tag }}
           tag: ${{ steps.versioning.outputs.tag }}
-          artifacts: "dist/index.js"
+          artifacts: "dist/versioned/index.js"
           body: "${{ steps.versioning.outputs.changelog }}"

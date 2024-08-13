@@ -37,7 +37,7 @@ if (!inputFile.exists()) {
 }
 
 const inputStream = inputFile.stream();
-const outputStream = Bun.file("./dist/index-versioned.js").writer();
+const outputStream = Bun.file("./dist/versioned/index.js").writer();
 
 const decoder = new TextDecoder();
 const encoder = new TextEncoder();
