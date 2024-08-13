@@ -1,0 +1,36 @@
+name: Build and Release
+on: [push]
+
+jobs:
+  build-and-release:
+    name: "build"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Build
+        run: bun run build
+
+      - name: Gen Versioning Data
+        id: versioning
+        uses: Soumeh/Auto-Versioning@main
+
+      - name: write version to dist script
+        id: writeVersion
+        run: bun run scripts/writeVersionToDist.ts
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+
+        with:
+          name: ${{ github.event.head_commit.message }}
+          tag: ${{ steps.versioning.outputs.tag }}
+          artifacts: "dist/index.js"
+          body: "${{ steps.versioning.outputs.changelog }}"
