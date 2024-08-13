@@ -10,4 +10,4 @@
 // @version      {{version}}
 // ==/UserScript==
 
-console.log("%cHello World!", "color:lime;font-size:30px;background:red;");
+console.log("%cHello World!", "color:orange;font-size:30px;background:cyan;");
