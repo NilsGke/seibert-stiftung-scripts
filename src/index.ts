@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Seibert Stiftung Global
-// @namespace    https://programmieren.de
+// @namespace    https://github.com/NilsGke/seibert-stiftung-scripts
 // @description  general purpose script for Seibert Stiftung Chromebooks
 // @author       NilsGke
 // @match        *://*/*
@@ -43,7 +43,7 @@ if (/https:\/\/studio\.code\.org.+/.test(url)) {
       cookieName + "=" + cookieValue + ";" + expires + ";path=/";
   }
 
-  // set language cookie
+  // set code.org language cookie
   const cookieName = "language_";
   const cookieValue = "de-DE";
   const currentLanguage = getCookie(cookieName);
