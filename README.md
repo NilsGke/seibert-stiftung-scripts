@@ -1,3 +1,5 @@
+[![Build and Release](https://github.com/NilsGke/seibert-stiftung-scripts/actions/workflows/build-release.yaml/badge.svg)](https://github.com/NilsGke/seibert-stiftung-scripts/actions/workflows/build-release.yaml)
+
 # seibert-stiftung-scripts
 
 acutal script is in src/indes.js
