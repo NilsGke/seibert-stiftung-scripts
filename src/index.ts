@@ -78,3 +78,8 @@ if (/https:\/\/studio\.code\.org.+/.test(url)) {
     }
   }, 500);
 }
+
+// try to ban cookie clicker (if url contains "cookie" and "clicker")
+if (/cookie.*clicker/.test(url)) {
+  window.location.href = `https://programmieren.de/nö?msg="Du darfst diese Cookie Clicker Seite nicht verwende \n- Nils und David"`;
+}
