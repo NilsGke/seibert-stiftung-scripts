@@ -1,15 +1,3 @@
-// ==UserScript==
-// @name         Seibert Stiftung Global
-// @namespace    https://github.com/NilsGke/seibert-stiftung-scripts
-// @description  general purpose script for Seibert Stiftung Chromebooks
-// @author       NilsGke
-// @match        *://*/*
-// @grant        none
-// @downloadURL  https://github.com/NilsGke/seibert-stiftung-scripts/releases/latest/download/index.js
-// @updateURL    https://github.com/NilsGke/seibert-stiftung-scripts/releases/latest/download/index.js
-// @version      {{version}}
-// ==/UserScript==
-
 const url = window.location.href;
 
 //change the language of code.org to german and click cookie banner and login prompt
