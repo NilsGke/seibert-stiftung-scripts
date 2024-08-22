@@ -20,7 +20,7 @@ if (/https:\/\/studio\.code\.org.+/.test(url)) {
   function setCookie(
     cookieName: string,
     cookieValue: string,
-    maxAgeDays: number
+    maxAgeDays: number,
   ) {
     const d = new Date();
     d.setTime(d.getTime() + maxAgeDays * 24 * 60 * 60 * 1000);
@@ -47,10 +47,10 @@ if (/https:\/\/studio\.code\.org.+/.test(url)) {
 
     function clickThings() {
       const buttonElement = document.querySelector<HTMLButtonElement>(
-        "#onetrust-close-btn-container > button"
+        "#onetrust-close-btn-container > button",
       );
       const backDropElement = document.querySelector<HTMLButtonElement>(
-        "#header_user_signin > div > div > div > div.modal-backdrop"
+        "#header_user_signin > div > div > div > div.modal-backdrop",
       );
 
       if (buttonElement !== null) {

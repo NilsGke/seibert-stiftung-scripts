@@ -1,17 +1,28 @@
-import { defineConfig } from "vite";
-import monkey, {
-  MonkeyOption,
-  TampermonkeyUserScript,
-} from "vite-plugin-monkey";
+// @ts-check
 
+import { defineConfig } from "vite";
+import monkey from "vite-plugin-monkey";
+
+/**
+ * @type {import("vite-plugin-monkey").MonkeyOption}
+ */
 export const monkeyConfig = {
   entry: "src/index.ts",
   build: {
     fileName: "seibert-stiftung-global.user.js",
     metaFileName: "seibert-stiftung-global.meta.js",
+    autoGrant: false,
   },
-} satisfies MonkeyOption;
+};
 
+if (monkeyConfig.build?.fileName === undefined)
+  throw Error("no build filename provided");
+if (monkeyConfig.build?.metaFileName === undefined)
+  throw Error("no build metafilename provided");
+
+/**
+ * @type {import('vite-plugin-monkey').TampermonkeyUserScript}
+ */
 const userscriptOptions = {
   name: "Seibert Stiftung Global",
   namespace: "https://github.com/NilsGke/seibert-stiftung-scripts",
@@ -21,7 +32,7 @@ const userscriptOptions = {
   downloadURL: `https://github.com/NilsGke/seibert-stiftung-scripts/releases/latest/download/${monkeyConfig.build.fileName}`,
   updateURL: `https://github.com/NilsGke/seibert-stiftung-scripts/releases/latest/download/${monkeyConfig.build.metaFileName}`,
   version: "{{version}}",
-} satisfies TampermonkeyUserScript;
+};
 
 export const viteConfig = {
   build: {

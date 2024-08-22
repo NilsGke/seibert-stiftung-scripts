@@ -45,7 +45,7 @@ async function applyVersion(fileName: string) {
   const filePath = `./${outDir}/${fileName}`;
   console.log(filePath);
   const inputFile = Bun.file(filePath);
-  if (!inputFile.exists()) {
+  if (!(await inputFile.exists())) {
     console.error("no build file found!");
     process.exit(10);
   }
@@ -57,7 +57,7 @@ async function applyVersion(fileName: string) {
   const encoder = new TextEncoder();
 
   /** buffers two values to account for templates that are split through streaming */
-  let buffer = [];
+  let buffer: string[] = [];
 
   const reader = inputStream.getReader();
   await reader.read().then(function pump({ done, value }) {
